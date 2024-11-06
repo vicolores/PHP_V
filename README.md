@@ -8,14 +8,17 @@ Este documento proporciona instrucciones básicas sobre cómo ejecutar un archiv
 Para seguir estas instrucciones, asegúrate de tener instalado el container de PHP/MariaDB
 
 - **PHP/MariaDB**: CTRl+SHIFT(o mayusculas)+p  y escribir "PHP/MariaDB" y seleccionar la opción de instalación.
-     ```>
+     ```
+     Si no aparece > al usar el hotkey añadelo tu.
      Codespaces: Add New Container Configuration..
      Seguir las instrucciones y elegir PHP/MariaDB
+     Después revisar los archivos de acceso. Utilizar los archivos de los ejercicios para comprobarlos.
      ```
 
-- **PHP**: Debes tener PHP instalado en tu máquina. Puedes verificar la instalación usando el siguiente comando:
+- **PHP/MariaDB**: Puedes verificar la instalación usando el siguiente comando:
   ```bash
   php -v
+  mysql -V
   ```
 ## Ejecutar un Archivo PHP en Consola
 
