@@ -57,6 +57,8 @@
 <a href="POO/Repaso/p4/index1.php">Ejecutar POO Repaso p4.1</a><br/>
 <a href="SOBRECARGA/index.php">Sobrecarga</a><br/>
 <a href="prueba_conexion.php">Test_BD</a><br>
+<a href="Examen/19/formulario.html">Examen19</a><br/>
+<a href="Examen/21/formulario.html">Examen21</a><br/>
 
 </body>
 </html>

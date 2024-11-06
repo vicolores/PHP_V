@@ -1,0 +1,16 @@
+INSERT INTO tu_tabla (dni, nombre, grupo, fecha_hora, asignatura, nota) VALUES
+('12345678A', 'María García', 'Grupo A', '2024-11-06 10:00:00', 'PHP', 8.5),
+('12345678A', 'María García', 'Grupo A', '2024-11-06 11:00:00', 'JavaScript', 7.0),
+('12345678A', 'María García', 'Grupo A', '2024-11-06 12:00:00', 'HTML', 9.2),
+('23456789B', 'Juan Pérez', 'Grupo B', '2024-11-06 13:00:00', 'PHP', 6.8),
+('23456789B', 'Juan Pérez', 'Grupo B', '2024-11-06 14:00:00', 'JavaScript', 7.5),
+('23456789B', 'Juan Pérez', 'Grupo B', '2024-11-06 15:00:00', 'HTML', 8.0),
+('34567890C', 'Ana López', 'Grupo A', '2024-11-06 16:00:00', 'PHP', 9.0),
+('34567890C', 'Ana López', 'Grupo A', '2024-11-06 17:00:00', 'JavaScript', 6.5),
+('34567890C', 'Ana López', 'Grupo A', '2024-11-06 18:00:00', 'HTML', 8.7),
+('45678901D', 'Luis Martínez', 'Grupo C', '2024-11-06 19:00:00', 'PHP', 7.8),
+('45678901D', 'Luis Martínez', 'Grupo C', '2024-11-06 20:00:00', 'JavaScript', 9.1),
+('45678901D', 'Luis Martínez', 'Grupo C', '2024-11-06 21:00:00', 'HTML', 8.3),
+('56789012E', 'Carmen Fernández', 'Grupo B', '2024-11-06 22:00:00', 'PHP', 7.6),
+('56789012E', 'Carmen Fernández', 'Grupo B', '2024-11-06 23:00:00', 'JavaScript', 8.9),
+('56789012E', 'Carmen Fernández', 'Grupo B', '2024-11-07 00:00:00', 'HTML', 9.4);
