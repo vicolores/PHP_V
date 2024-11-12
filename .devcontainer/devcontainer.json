@@ -48,7 +48,8 @@
                 "miguel-solorio.symbols",
                 "malcolmmielle.semantic-highlighting",
                 "ms-vscode.remote-repositories",
-                "i7ssha.insert-tag"
+                "i7ssha.insert-tag",
+                "miguelsolorio.fluent-icons"
             ]
         }
     }
