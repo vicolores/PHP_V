@@ -1,7 +1,9 @@
 <?php
-/* Crea un programa que almacene un nombre, apellidos, edad, 
+/* 
+    Crea un programa que almacene un nombre, apellidos, edad, 
     domicilio, cp, teléfono, profesión
- en variables y mostrarlos por pantalla */
+    en variables y mostrarlos por pantalla 
+ */
 
 $nombre = " Nombre: Victor ";
 $apellidos = "Apellidos: Coll Lores";
@@ -18,3 +20,6 @@ echo $domicilio . "<br>";
 echo $cp . "<br>";
 echo $telefono . "<br>";
 echo $profesion . "<br>";
+?>
+<br><br>
+<a href="/index.php">Volver</a>

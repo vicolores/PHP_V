@@ -13,14 +13,19 @@
 ?>
 
 <!-- Enlace para ejecutar pXX.php -->
-<a href="P2_P3_P4/p2_1A9/p2_1.php">Ejecutar p2_1</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_3.php">Ejecutar p2_3</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_4.php">Ejecutar p2_4</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_5.php">Ejecutar p2_5</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_6.php">Ejecutar p2_6</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_7.php">Ejecutar p2_7</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_8.php">Ejecutar p2_8</a><br/>
-<a href="P2_P3_P4/p2_1A9/p2_9.php">Ejecutar p2_9</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_1.php">Ejecutar p2_1</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_3.php">Ejecutar p2_3</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_4.php">Ejecutar p2_4</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_5.php">Ejecutar p2_5</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_6.php">Ejecutar p2_6</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_7.php">Ejecutar p2_7</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_8.php">Ejecutar p2_8</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_9.php">Ejecutar p2_9</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_10.php">Ejecutar p2_10</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_11.php">Ejecutar p2_11</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_12.php">Ejecutar p2_12</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_13.php">Ejecutar p2_13</a><br/>
+<a href="P2_P3_P4/p2_1A14/p2_14.php">Ejecutar p2_14</a><br/>
 <a href="P2_P3_P4/p3_1A8/p3_1.php">Ejecutar p3_1</a><br/>
 <a href="P2_P3_P4/p3_1A8/p3_2.php">Ejecutar p3_2</a><br/>
 <a href="P2_P3_P4/p3_1A8/p3_3.php">Ejecutar p3_3</a><br/>

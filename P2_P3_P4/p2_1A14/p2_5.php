@@ -1,7 +1,9 @@
 <?php
-/* Pon en negrita nombre, apellidos, edad, 
-    domicilio, cp, teléfono, profesión
- en variables y mostrarlos por pantalla */
+/**
+ * Pon en negrita nombre, apellidos, edad, 
+ * domicilio, cp, teléfono, profesión
+ * en variables y mostrarlos por pantalla 
+ */
 
 $nombre = " Nombre: <b>Victor</b> ";
 $apellidos = "Apellidos: <b>Coll Lores</b>";
@@ -18,3 +20,6 @@ echo $domicilio . "<br>";
 echo $cp . "<br>";
 echo $telefono . "<br>";
 echo $profesion . "<br>";
+?>
+<br><br>
+<a href="/index.php">Volver</a>
