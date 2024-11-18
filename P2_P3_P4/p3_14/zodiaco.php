@@ -20,8 +20,8 @@
 
         <select id="signo" name="signo" required>
             <!-- Campo desplegable (select) que permite al usuario elegir un signo del zodiaco.
-                 El atributo 'name' define el nombre de la variable que se enviará a "horoscopo.php".
-                 El atributo 'required' hace que la selección sea obligatoria. -->
+                El atributo 'name' define el nombre de la variable que se enviará a "horoscopo.php".
+                El atributo 'required' hace que la selección sea obligatoria. -->
 
             <option value="">Seleccione...</option>
             <!-- Opción por defecto (vacía) que invita al usuario a seleccionar un signo. -->
@@ -49,6 +49,6 @@
         <!-- Botón de envío del formulario que envía los datos seleccionados a "horoscopo.php". -->
     </form>
     <!-- Cierra el formulario. -->
-
+<h3><a href="/index.php">Volver al índice</a></h3>
 </body>
 </html>

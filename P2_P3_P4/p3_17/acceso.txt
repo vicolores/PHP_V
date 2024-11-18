@@ -16,3 +16,8 @@ El Usuario: victor, ha accedido al sistema
 El Usuario: victor, ha accedido al sistema 
 El Usuario: victor, ha accedido al sistema 
 El Usuario: victor, ha accedido al sistema 
+Intento fallido de acceso del Usuario: victor 
+El Usuario: victor, ha accedido al sistema 
+Intento fallido de acceso del Usuario: luisa 
+Intento fallido de acceso del Usuario: luisa 
+El Usuario: luisa, ha accedido al sistema 

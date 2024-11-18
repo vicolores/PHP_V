@@ -1,11 +1,22 @@
 <?php
+/*
+Escribe el código para las siguientes funciones. 
+• Función pesetas_a_euros($pesetas): recibe como parámetro un 
+valor en pesetas y devuelve el equivalente en euros (1 euro = 
+166.368 ptas).
+• Función euros_a_pesetas($euros): recibe como parámetro un
+valor en euros y devuelve el equivalente en pesetas.
+Modifica el programa del ejercicio 3.9 para mostrar el tiquet de 
+compras en euros y en pesetas haciendo la conversión con estas 
+funciones. 
+*/
 function pesetas ($pesetas) {
     $euros = $pesetas / 166.386;
- return $euros; 
+    return $euros; 
 }
 function euros ($euros) {
     $pesetas = $euros * 166.386;
- return $pesetas; 
+    return $pesetas; 
 }
 $producto = array(
     "Judias" => "3.5",
@@ -36,6 +47,8 @@ foreach ($producto as $i => $precio) {
     }
     $total += $multiplicar;  
 }
- echo ("El precio total es: $total .<br>");
- echo ("El precio total en pesetas es: " . number_format(euros($total),2) . "<br>");
+echo ("El precio total es: $total .<br>");
+echo ("El precio total en pesetas es: " . number_format(euros($total),2) . "<br>");
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

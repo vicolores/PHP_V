@@ -63,6 +63,8 @@ echo "<br>Número de letras por palabra:<br>";
 
 // Imprimimos el número de letras de cada palabra
 foreach ($numeroLetrasPalabrasArray as $palabra => $longitud) {
-    echo $palabra . " tiene " . $longitud . " letras.</br>";
+    echo "-" . $palabra . "- tiene " . $longitud . " letras.</br>";
 }
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

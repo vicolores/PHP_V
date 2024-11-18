@@ -13,4 +13,7 @@ $abecedario = range('a', 'z');
 foreach ($abecedario as $indice => $letra) {
     echo "Índice $indice: $letra - " . strtoupper($letra) . "<br>";
 }
+?>
+<br><br>
+<a href="/index.php">Volver</a>
 

@@ -46,3 +46,5 @@ if (count($nifPorCarac) === 9) {
     echo "Error: El NIF debe tener exactamente 8 números y una letra.";
 }
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

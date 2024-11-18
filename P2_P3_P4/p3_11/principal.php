@@ -36,3 +36,5 @@ echo "<br>";
 echo "El precio total es: <strong>" . number_format($total, 2) . " €</strong>.<br>";
 echo "El precio total en pesetas es: <strong>" . number_format(euros($total), 2) . " Ptas</strong>.<br>";
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

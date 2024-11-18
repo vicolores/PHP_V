@@ -28,5 +28,7 @@ foreach ($producto as $i => $precio) {
     }
     $total += $multiplicar;  
 }
- echo ("El precio total es: $total .<br>");
+echo ("El precio total es: $total .<br>");
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

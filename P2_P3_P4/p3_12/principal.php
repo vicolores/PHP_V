@@ -15,3 +15,5 @@ $fraseCodificada = codificarFrase($frase, $desplazamiento);
 echo "Frase original: $frase .<br>"; 
 echo "Frase codificada: $fraseCodificada .<br>";
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

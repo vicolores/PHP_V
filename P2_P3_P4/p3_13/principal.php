@@ -38,3 +38,5 @@ echo "Frase codificada: $cadenaCodificada.<br>";
 // $cadenaDecodificada = implode(", ", $arrayCiudadDecodificada);
 // echo "Frase decodificada: $cadenaDecodificada.<br>";
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

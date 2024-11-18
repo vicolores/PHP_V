@@ -44,3 +44,5 @@ foreach ($frase as $indice => $letra) {
 echo "Frase original: " . implode($frase) . "<br>";
 echo "Frase codificada: " . $fraseCodificada;
 ?>
+<br><br>
+<a href="/index.php">Volver</a>

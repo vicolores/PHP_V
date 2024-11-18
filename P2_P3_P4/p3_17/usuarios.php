@@ -2,8 +2,8 @@
 function validarUsuario($usuario, $contraseña){
 
   $usuarios = array("victor" => "1234",
-  "Luisa" => "baobab",
-  "Antonio" => "olmo");
+  "luisa" => "baobab",
+  "antonio" => "olmo");
 
   // Verifica si el usuario existe en el array $usuarios y si la contraseña proporcionada coincide
   // 1. array_key_exists($usuario, $usuarios) verifica si la clave $usuario existe en el array $usuarios.
