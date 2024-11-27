@@ -47,6 +47,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
 $conexion->close();
 ?>

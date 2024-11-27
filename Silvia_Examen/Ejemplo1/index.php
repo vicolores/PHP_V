@@ -41,7 +41,6 @@ $conexion = new Conexion("127.0.0.1", "mariadb", "mariadb", "mariadb");
             }
         }
 
-       
         if (isset($_POST['actualizar_precio'])) {
             $Codigo_Producto = filter_input(INPUT_POST, 'codigo_producto');
             $Nuevo_Precio = filter_input(INPUT_POST, 'precio', FILTER_VALIDATE_FLOAT);

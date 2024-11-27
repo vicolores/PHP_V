@@ -48,7 +48,7 @@ class BorrarFruta {
                             <input type='hidden' name='id' value='" . $fruta['id'] . "'>
                             <input type='submit' name='borrar' value='Borrar'>
                         </form>
-                      </td>";
+                    </td>";
                 echo "</tr>";
             }
             echo "</table>";

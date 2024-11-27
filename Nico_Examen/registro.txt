@@ -1,0 +1,63 @@
+Fruta: Patatas
+Precio: 0.4
+
+Fruta: Tomates
+Precio: 1
+
+Fruta: Manzanas
+Precio: 1.2
+
+Fruta: Uvas
+Precio: 2.5
+
+Fruta: Judias
+Precio: 3.5
+
+Fruta: josep
+Precio: 25.2
+
+Fruta: Patatas
+Precio: 0.4
+
+Fruta: Tomates
+Precio: 1
+
+Fruta: Manzanas
+Precio: 1.2
+
+Fruta: Uvas
+Precio: 2.5
+
+Fruta: Judias
+Precio: 3.5
+
+Fruta: josep
+Precio: 25.2
+
+Fruta: Pera
+Precio: 1.30
+
+Fruta: Pera
+Precio: 1.30
+
+Fruta: Melocoton
+Precio: 2.50
+
+Fruta: Melocoton
+Precio: 2.50
+
+Fruta: Judias
+Precio: 3.50
+
+Fruta: Carambola
+Precio: 6.00
+
+Fruta: Carambola
+Precio: 6.00
+
+Fruta: guanabana
+Precio: 13.30
+
+Fruta: guanabana
+Precio: 13.30
+
