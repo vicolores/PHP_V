@@ -43,10 +43,20 @@ Este método es ideal para probar conexiones a bases de datos, realizar tareas p
 
 PHP incluye un servidor web de desarrollo integrado que puedes utilizar para probar aplicaciones web de forma local. Esto es especialmente útil durante la etapa de desarrollo.
 
-### Comando:
+### Comando PHP:
 
 ```bash
 php -S 0.0.0.0:8000
+```
+### Comando Apache2:
+
+```bash
+sudo service apache2 start
+```
+### Comando Check de funcionamiento:
+
+```bash
+service --status-all
 ```
 
 ### Explicación:
