@@ -28,33 +28,54 @@ PROJECT_PATH="/workspaces/$PROJECT_DIR"
 mkdir -p "$PROJECT_PATH" || error_exit "No se pudo crear el directorio del proyecto"
 
 # Establecer nombre del servidor como localhost
-echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
+echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
 
 # Habilitar configuración de nombre de servidor
-a2enconf servername
+sudo a2enconf servername
 
 # Iniciar servicio Apache
-service apache2 start
+sudo service apache2 start
 
 # Establecer permisos para directorio web
-chmod -R 755 /var/www/html
+sudo chmod -R 755 /var/www/html
 
-# Comentar la línea DocumentRoot original y añadir nueva configuración
-sed -i 's|^\(DocumentRoot /var/www/html\)|#\1|g' /etc/apache2/sites-available/000-default.conf
-sed -i "/<\/VirtualHost>/i\
-    DocumentRoot $PROJECT_PATH\
-    <Directory $PROJECT_PATH>\
-        Options Indexes FollowSymLinks\
-        AllowOverride All\
-        Require all granted\
-    </Directory>" /etc/apache2/sites-available/000-default.conf
+# Ruta del archivo de configuración
+CONFIG_FILE="/etc/apache2/sites-available/000-default.conf"
+
+# Crear un archivo de configuración temporal
+TEMP_CONFIG=$(mktemp)
+
+# Procesar el archivo de configuración
+sudo awk -v project_path="$PROJECT_PATH" '
+    /^[ \t]*DocumentRoot/ {
+        print "#" $0  # Comentar línea original
+        print "        DocumentRoot \"" project_path "\""  # Nueva línea con comillas
+        next
+    }
+    /<\/VirtualHost>/ {
+        print "        <Directory \"" project_path "\">"
+        print "                Options Indexes FollowSymLinks"
+        print "                AllowOverride All"
+        print "                Require all granted"
+        print "        </Directory>"
+    }
+    {print}
+' "$CONFIG_FILE" > "$TEMP_CONFIG"
+
+# Reemplazar archivo original con el temporal
+sudo mv "$TEMP_CONFIG" "$CONFIG_FILE"
 
 # Establecer permisos para el directorio del proyecto
-chown -R $SUDO_USER:$SUDO_USER "$PROJECT_PATH"
-chmod -R 755 "$PROJECT_PATH"
+#sudo chown -R $SUDO_USER:$SUDO_USER "$PROJECT_PATH"
+sudo chmod -R 755 "$PROJECT_PATH"
+
+# Verificar configuración de Apache
+if ! sudo apache2ctl configtest; then
+    error_exit "Error en la configuración de Apache. Por favor, revise manualmente."
+fi
 
 # Recargar Apache para aplicar cambios
-service apache2 reload
+sudo service apache2 reload
 
 echo "¡Configuración de Apache completada con éxito!"
 echo "Directorio del proyecto configurado: $PROJECT_PATH"
