@@ -137,6 +137,18 @@ Esta guía proporciona instrucciones y un script para configurar Apache en un es
    - Abrir el archivo de configuración de sitio predeterminado
    - Buscar la línea: `DocumentRoot /var/www/html`
    - Cambiarla a: `DocumentRoot /workspaces/PHP_Apache`
+     
+   Añadir la siguiente configuración de directorio al final del documento:
+   ```apache
+   <Directory /workspaces/PHP_Apache>
+       Options Indexes FollowSymLinks
+       AllowOverride All
+       Require all granted     
+   </Directory>
+   ```
+   - `Options Indexes FollowSymLinks`: Permite listar directorios y seguir enlaces simbólicos
+   - `AllowOverride All`: Permite el uso de archivos .htaccess
+   - `Require all granted`: Permite el acceso a todos los usuarios
 
 6. **Recargar Apache**
    ```bash
@@ -144,8 +156,23 @@ Esta guía proporciona instrucciones y un script para configurar Apache en un es
    ```
    - Aplica los cambios de configuración sin reiniciar completamente el servicio
 
+7. **Uso servidor Apache**
+   ```bash
+   sudo service apache2 status
+   sudo service apache2 start
+   sudo service apache2 stop
+   sudo service apache2 reload
+   sudo service apache2 restart
+   ```
+   - Aplica los cambios de configuración sin reiniciar completamente el servicio
+
 ### Configuración Automatizada
 Utilice el script `setup-apache.sh` para automatizar todo el proceso de configuración anterior.
+Para usarlo:
+
+   - Guarde el script como setup-apache.sh
+   - Hágalo ejecutable: chmod +x setup-apache.sh
+   - Ejecútelo con sudo: sudo ./setup-apache.sh
 
 ## Resolución de Problemas
 - Asegúrese de tener privilegios sudo
