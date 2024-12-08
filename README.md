@@ -89,7 +89,85 @@ http://localhost:8000
 
 Si tienes dudas adicionales, por favor consulta la [documentación oficial de PHP](https://www.php.net/manual/en/features.commandline.webserver.php) o contacta con el administrador del proyecto para más detalles.
 
----
+***************************************************************************************************************************************************************************************************
+# Configuración de Apache para Espacio de Trabajo PHP
+
+## Descripción General
+Esta guía proporciona instrucciones y un script para configurar Apache en un espacio de trabajo de desarrollo, específicamente configurando la raíz del documento para que apunte a un directorio personalizado.
+
+## Requisitos Previos
+- Sistema Linux basado en Ubuntu o Debian
+- Servidor web Apache2 instalado
+- Acceso sudo
+
+## Instrucciones Detalladas
+
+### Configuración Manual Paso a Paso
+
+1. **Configurar Nombre del Servidor**
+   ```bash
+   echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
+   ```
+   - Este comando establece el nombre del servidor como localhost
+   - Ayuda a prevenir advertencias de configuración de Apache
+
+2. **Habilitar Configuración de Nombre de Servidor**
+   ```bash
+   sudo a2enconf servername
+   ```
+   - Activa la configuración de nombre de servidor que acabamos de crear
+
+3. **Iniciar Servicio Apache**
+   ```bash
+   sudo service apache2 start
+   ```
+   - Inicia el servicio Apache si no está ya en ejecución
+
+4. **Establecer Permisos de Directorio**
+   ```bash
+   sudo chmod -R 755 /var/www/html
+   ```
+   - Establece permisos de lectura, escritura y ejecución para el propietario
+   - Permisos de lectura y ejecución para grupo y otros
+
+5. **Modificar Raíz del Documento**
+   ```bash
+   sudo nano /etc/apache2/sites-available/000-default.conf
+   ```
+   - Abrir el archivo de configuración de sitio predeterminado
+   - Buscar la línea: `DocumentRoot /var/www/html`
+   - Cambiarla a: `DocumentRoot /workspaces/PHP_Apache`
+
+6. **Recargar Apache**
+   ```bash
+   sudo service apache2 reload
+   ```
+   - Aplica los cambios de configuración sin reiniciar completamente el servicio
+
+### Configuración Automatizada
+Utilice el script `setup-apache.sh` para automatizar todo el proceso de configuración anterior.
+
+## Resolución de Problemas
+- Asegúrese de tener privilegios sudo
+- Verifique que Apache esté instalado antes de ejecutar el script
+- Revise los registros de errores de Apache si ocurre algún problema
+   - Comando para ver logs: `sudo tail -f /var/log/apache2/error.log`
+
+## Notas Adicionales
+- Antes de modificar, asegúrese de que el directorio `/workspaces/PHP_Apache` exista
+- Cree el directorio si es necesario: `sudo mkdir -p /workspaces/PHP_Apache`
+- Establezca los permisos del nuevo directorio: `sudo chown -R $USER:$USER /workspaces/PHP_Apache`
+
+## Nota de Seguridad
+Los permisos se establecen en 755, proporcionando permisos completos al propietario y permisos de lectura y ejecución a grupo y otros. Ajuste según sus requisitos específicos de seguridad.
+
+## Verificación
+Para comprobar que Apache funciona correctamente:
+- Abra un navegador
+- Visite `http://localhost`
+- Debería ver la página predeterminada de Apache
+
+-----
 
 © 2024, Victor Coll Lores.
 
