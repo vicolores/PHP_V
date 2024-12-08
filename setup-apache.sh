@@ -39,11 +39,10 @@ service apache2 start
 # Establecer permisos para directorio web
 chmod -R 755 /var/www/html
 
-# Modificar raíz del documento y añadir configuración de directorio
-sed -i "s|DocumentRoot /var/www/html|DocumentRoot $PROJECT_PATH|g" /etc/apache2/sites-available/000-default.conf
-
-# Añadir configuración de directorio antes de </VirtualHost>
+# Comentar la línea DocumentRoot original y añadir nueva configuración
+sed -i 's|^\(DocumentRoot /var/www/html\)|#\1|g' /etc/apache2/sites-available/000-default.conf
 sed -i "/<\/VirtualHost>/i\
+    DocumentRoot $PROJECT_PATH\
     <Directory $PROJECT_PATH>\
         Options Indexes FollowSymLinks\
         AllowOverride All\
