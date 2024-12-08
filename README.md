@@ -136,11 +136,11 @@ Esta guía proporciona instrucciones y un script para configurar Apache en un es
    ```
    - Abrir el archivo de configuración de sitio predeterminado
    - Buscar la línea: `DocumentRoot /var/www/html`
-   - Cambiarla a: `DocumentRoot /workspaces/PHP_Apache`
+   - Cambiarla a: `DocumentRoot /workspaces/DirectorioDelProyecto`
      
    Añadir la siguiente configuración de directorio al final del documento:
    ```apache
-   <Directory /workspaces/PHP_Apache>
+   <Directory /workspaces/DirectorioDelProyecto>
        Options Indexes FollowSymLinks
        AllowOverride All
        Require all granted     
@@ -156,7 +156,12 @@ Esta guía proporciona instrucciones y un script para configurar Apache en un es
    ```
    - Aplica los cambios de configuración sin reiniciar completamente el servicio
 
-7. **Uso servidor Apache**
+7. **Uso de Apache**
+   - Ira a la sección puertos
+   - Añadir puerto 80
+   - Pasar el ratón por dirección reenviada del puerto 80 y pulsar sobre la bola
+
+8. **Uso servidor Apache**
    ```bash
    sudo service apache2 status
    sudo service apache2 start
@@ -181,9 +186,9 @@ Para usarlo:
    - Comando para ver logs: `sudo tail -f /var/log/apache2/error.log`
 
 ## Notas Adicionales
-- Antes de modificar, asegúrese de que el directorio `/workspaces/PHP_Apache` exista
-- Cree el directorio si es necesario: `sudo mkdir -p /workspaces/PHP_Apache`
-- Establezca los permisos del nuevo directorio: `sudo chown -R $USER:$USER /workspaces/PHP_Apache`
+- Antes de modificar, asegúrese de que el directorio `/workspaces/DirectorioDelProyecto` exista
+- Cree el directorio si es necesario: `sudo mkdir -p /workspaces/DirectorioDelProyecto`
+- Establezca los permisos del nuevo directorio: `sudo chown -R $USER:$USER /workspaces/DirectorioDelProyecto`
 
 ## Nota de Seguridad
 Los permisos se establecen en 755, proporcionando permisos completos al propietario y permisos de lectura y ejecución a grupo y otros. Ajuste según sus requisitos específicos de seguridad.
