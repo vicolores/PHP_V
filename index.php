@@ -13,6 +13,7 @@
 ?>
 
 <!-- Enlace para ejecutar pXX.php -->
+<a href="animales/cliente.php">Animales</a><br/>
 <a href="Fruteria/fruteria_REST/fruteria_rest_client/index.php">Frutería</a><br/>
 <a href="Sesiones/Ej1/index.php">Sesión Ej1</a><br/>
 <a href="P2_P3_P4/p2_1A14/p2_1.php">Ejecutar p2_1</a><br/>

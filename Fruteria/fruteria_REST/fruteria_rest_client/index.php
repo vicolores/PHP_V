@@ -88,7 +88,7 @@ Ejemplo Cliente REST para el Servicio Web frutería
         $nom = '';
         if (isset($_REQUEST["validar"])) {
             if (isset($_REQUEST["temporada"])) {
-                $temporada = filter_input(INPUT_POST, "temporada", FILTER_SANITIZE_STRING);
+                $temporada = filter_input(INPUT_POST, "temporada", FILTER_SANITIZE_SPECIAL_CHARS);
                 $url = "http://localhost/toni/fruteria_rest_servidor/index.php?temporada=" . $temporada;
                 $res .= '<h5 class="card-title">Frutas de ' . $temporada . '</h5>';
                 $response = curl_conexion($url, "GET");
@@ -110,8 +110,8 @@ Ejemplo Cliente REST para el Servicio Web frutería
         }
         if (isset($_REQUEST["validar2"])) {
             if (isset($_REQUEST["temporada"]) && isset($_REQUEST["fruta"])) {
-                $temporada = filter_input(INPUT_POST, "temporada", FILTER_SANITIZE_STRING);
-                $fruta = filter_input(INPUT_POST, "fruta", FILTER_SANITIZE_STRING);
+                $temporada = filter_input(INPUT_POST, "temporada", FILTER_SANITIZE_SPECIAL_CHARS);
+                $fruta = filter_input(INPUT_POST, "fruta", FILTER_SANITIZE_SPECIAL_CHARS);
                 $res .= '<h5 class="card-title">Datos de ' . $fruta . '</h5>';
                 $dato = '';
                 $url = "http://localhost/toni/fruteria_rest_servidor/index.php?tempo=" . $temporada . "&fruta=" . $fruta;
@@ -140,8 +140,8 @@ Ejemplo Cliente REST para el Servicio Web frutería
         }
         if (isset($_REQUEST["modificar"])) {
             if (isset($_REQUEST["id"]) && isset($_REQUEST["precio_kg"])) {
-                $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
-                $precio_kg = filter_input(INPUT_POST, "precio_kg", FILTER_SANITIZE_STRING);
+                $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
+                $precio_kg = filter_input(INPUT_POST, "precio_kg", FILTER_SANITIZE_SPECIAL_CHARS);
                 $params = array('id' => $id, 'precio_kg' => $precio_kg);
                 $url = "http://localhost/toni/fruteria_rest_servidor/index.php";
                 $response = curl_conexion($url, "PUT", $params);
@@ -156,7 +156,7 @@ Ejemplo Cliente REST para el Servicio Web frutería
         }
         if (isset($_REQUEST["eliminar"])) {
             if (isset($_REQUEST["id"])) {
-                $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
+                $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_SPECIAL_CHARS);
                 $url = "http://localhost/toni/fruteria_rest_servidor/index.php?id=" . $id;
                 $response = curl_conexion($url, "DELETE");
                 $resp = json_decode($response);
