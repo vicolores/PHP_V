@@ -25,7 +25,7 @@ fi
 PROJECT_PATH="/workspaces/$PROJECT_DIR"
 
 # Crear directorio del proyecto si no existe
-mkdir -p "$PROJECT_PATH" || error_exit "No se pudo crear el directorio del proyecto"
+#mkdir -p "$PROJECT_PATH" || error_exit "No se pudo crear el directorio del proyecto"
 
 # Establecer nombre del servidor como localhost
 echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
