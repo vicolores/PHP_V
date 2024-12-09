@@ -67,7 +67,7 @@ sudo mv "$TEMP_CONFIG" "$CONFIG_FILE"
 
 # Establecer permisos para el directorio del proyecto
 #sudo chown -R $SUDO_USER:$SUDO_USER "$PROJECT_PATH"
-sudo chmod -R 755 "$PROJECT_PATH"
+#sudo chmod -R 755 "$PROJECT_PATH"
 
 # Verificar configuración de Apache
 if ! sudo apache2ctl configtest; then
