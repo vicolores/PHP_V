@@ -14,18 +14,26 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Solicitar nombre del directorio del proyecto
-read -p "Introduzca el nombre del directorio del proyecto (ejemplo: PHP_Apache): " PROJECT_DIR
+while true; do
+    read -p "Introduzca el nombre del directorio del proyecto (ejemplo: PHP_Apache): " PROJECT_DIR
 
-# Validar que el nombre del directorio no esté vacío
-if [ -z "$PROJECT_DIR" ]; then
-    error_exit "El nombre del directorio del proyecto no puede estar vacío"
-fi
+    # Validar que el nombre del directorio no esté vacío
+    if [ -z "$PROJECT_DIR" ]; then
+        echo "El nombre del directorio del proyecto no puede estar vacío. Inténtelo de nuevo."
+        continue
+    fi
 
-# Ruta completa del proyecto
-PROJECT_PATH="/workspaces/$PROJECT_DIR"
+    # Ruta completa del proyecto
+    PROJECT_PATH="/workspaces/$PROJECT_DIR"
 
-# Crear directorio del proyecto si no existe
-#mkdir -p "$PROJECT_PATH" || error_exit "No se pudo crear el directorio del proyecto"
+    # Comprobar si el directorio existe
+    if [ -d "$PROJECT_PATH" ]; then
+        echo "El directorio $PROJECT_PATH existe, OK."
+        break
+    else
+        echo "El directorio $PROJECT_PATH no existe. Vuelve a intentarlo..."
+    fi
+done
 
 # Establecer nombre del servidor como localhost
 echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
@@ -64,10 +72,6 @@ sudo awk -v project_path="$PROJECT_PATH" '
 
 # Reemplazar archivo original con el temporal
 sudo mv "$TEMP_CONFIG" "$CONFIG_FILE"
-
-# Establecer permisos para el directorio del proyecto
-#sudo chown -R $SUDO_USER:$SUDO_USER "$PROJECT_PATH"
-#sudo chmod -R 755 "$PROJECT_PATH"
 
 # Verificar configuración de Apache
 if ! sudo apache2ctl configtest; then
