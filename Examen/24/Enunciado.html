@@ -1,0 +1,65 @@
+<!--
+Un Administrador de comunidades de propietarios nos ha pedido una aplicación para 
+gestionar los ingresos y gastos asociados a las comunidades.
+El módulo recibirá en la URL el identificador de la comunidad en la que se añade un nuevo
+gato.
+El nuevo gasto se dará de alta a partir de un formulario donde se introducen los valores
+necesarios para rellenar la tabla gastos_idcomunidad de la base de datos finadm, donde el
+usuario es adm y la contraseña nonplusultra en el servidor srv1.admfin.es. Los campos de la
+tabla son:
+    - id (int)
+    - num_gasto (int)
+    - fecha_factura (date)
+    - num_factura (varchar)
+    - nombre_proveedor (varchar)
+    - total (decimal)
+    - pagado (booleano)
+
+Con estos datos el módulo, gastos_php, deberá primero consultar la tabla para recuperar el 
+valor del campo num_gasto y asignarle el siiguiente nuevo gasto. Después, los grabará en
+la tabla. A continuación, mostrará la lista de gastos sin pagar y su valor total y al final
+se pondrá un enlace para volver al módulo principal, index.php.
+-->
+<!DOCTYPE html>
+<!--Formulario toma los datos para dar de alta un gasto de una comunidad-->
+<html lang="es">
+<head>
+    <title>Gastos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+            <input type="hidden" name="idComunidad" value="<?php echo $idComunidad; ?>">
+                <p>
+                    <label>Proveedor</label>
+                    <input type="text" name="proveedor">
+                </p>
+                <p>
+                    <label>Núm. Factura</label>
+                    <input type="text" name="numFact">
+                </p>
+                <p>
+                    <label>Fecha Factura</label>
+                    <input type="text" name="fechaFact">
+                </p>
+                <p>
+                    <label>Total Factura</label>
+                    <input type="text" name="total">
+                </p>
+                <p>
+                    <label>Pagada:</label>
+                    <select type="text" name="pagado">
+                        <option value="1">Sí</option>
+                        <option value="0">No</option>
+                    </select>
+                </p>
+                <div class="form-group">
+                    <input type="submit" name="guardar" value="Guardar">
+                    <input type="reset" name="cancelar" value="Cancelar">
+                </div>
+        </form>
+    </div>
+</body>
+</html>

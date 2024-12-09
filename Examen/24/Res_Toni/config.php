@@ -5,7 +5,8 @@ DEFINE("USUARIO", "root");
 DEFINE("CONTRASENA", "");
 DEFINE("BD", "finadm");
 
-function volver($resp = null) {
+function volver($resp = null)
+{
    echo "<br>";
    // Cambia los blancos por _ Con el GET solo envia la cadena hasta el primer espacio en blanco
    $resp = str_replace(" ", "_", $resp);
