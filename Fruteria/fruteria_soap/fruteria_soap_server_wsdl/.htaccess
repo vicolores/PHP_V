@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{QUERY_STRING} wsdl
+RewriteRule (.*) /toni/fruteria_soap_server_wsdl/fruteria.wsdl? [R=302,L]
