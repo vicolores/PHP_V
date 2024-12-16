@@ -1,51 +1,68 @@
 <?php
 require_once 'conexion.php';
 
+// Conectar a la base de datos
 $conexion = conectarBaseDatos();
 
+// Verificar la conexión
+if (!$conexion) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+// Manejar solicitudes POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['accion'])) {
-        $accion = $_POST['accion'];
+        $accion = mysqli_real_escape_string($conexion, $_POST['accion']);
 
         if ($accion === 'alta') {
-            // Alta de una nueva nota
-            $dni = $_POST['dni'];
-            $nombre = $_POST['nombre'];
-            $grupo = $_POST['grupo'];
-            $fecha_hora = $_POST['fecha_hora'];
-            $asignatura = $_POST['asignatura'];
-            $nota = $_POST['nota'];
+            // Validar y escapar datos para alta de nota
+            $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
+            $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+            $grupo = mysqli_real_escape_string($conexion, $_POST['grupo']);
+            $fecha_hora = mysqli_real_escape_string($conexion, $_POST['fecha_hora']);
+            $asignatura = mysqli_real_escape_string($conexion, $_POST['asignatura']);
 
-            $stmt = $conexion->prepare("INSERT INTO notas (dni, nombre, grupo, fecha_hora, asignatura, nota) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssd", $dni, $nombre, $grupo, $fecha_hora, $asignatura, $nota);
+            // Convertir nota a número flotante para mayor seguridad
+            $nota = floatval($_POST['nota']);
 
-            if ($stmt->execute()) {
+            // Construir consulta de inserción
+            $consulta = "INSERT INTO notas (dni, nombre, grupo, fecha_hora, asignatura, nota) 
+                        VALUES ('$dni', '$nombre', '$grupo', '$fecha_hora', '$asignatura', $nota)";
+
+            // Ejecutar consulta
+            if (mysqli_query($conexion, $consulta)) {
                 echo "Nota guardada correctamente.";
             } else {
-                echo "Error al guardar la nota: " . $stmt->error;
+                echo "Error al guardar la nota: " . mysqli_error($conexion);
             }
-
-            $stmt->close();
         } elseif ($accion === 'media') {
-            // Cálculo de la nota media
-            $dni = $_POST['dni'];
-            $asignatura = $_POST['asignatura'];
+            // Validar y escapar datos para cálculo de nota media
+            $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
+            $asignatura = mysqli_real_escape_string($conexion, $_POST['asignatura']);
 
-            $stmt = $conexion->prepare("SELECT AVG(nota) as nota_media FROM notas WHERE dni = ? AND asignatura = ?");
-            $stmt->bind_param("ss", $dni, $asignatura);
-            $stmt->execute();
-            $resultado = $stmt->get_result();
+            // Consulta para calcular nota media
+            $consulta = "SELECT AVG(nota) as nota_media 
+                        FROM notas 
+                        WHERE dni = '$dni' AND asignatura = '$asignatura'";
 
-            if ($fila = $resultado->fetch_assoc()) {
-                $nota_media = $fila['nota_media'];
-                echo "La nota media de la asignatura $asignatura es: $nota_media";
+            // Ejecutar consulta
+            $resultado = mysqli_query($conexion, $consulta);
+
+            if ($resultado) {
+                $fila = mysqli_fetch_assoc($resultado);
+
+                if ($fila && $fila['nota_media'] !== null) {
+                    $nota_media = number_format($fila['nota_media'], 2);
+                    echo "La nota media de la asignatura $asignatura es: $nota_media";
+                } else {
+                    echo "No se encontraron registros para el alumno y asignatura especificados.";
+                }
             } else {
-                echo "No se encontraron registros para el alumno y asignatura especificados.";
+                echo "Error al calcular la nota media: " . mysqli_error($conexion);
             }
-
-            $stmt->close();
         }
     }
 }
-$conexion->close();
-?>
+
+// Cerrar conexión
+mysqli_close($conexion);
