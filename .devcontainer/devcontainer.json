@@ -9,6 +9,9 @@
     "forwardPorts": [8080, 3306],
     // Use 'postCreateCommand' to run commands after the container is created.
     // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html",
+    //"remoteEnv": {
+    //    "PATH": "${PATH}:/home/codespace/.composer/vendor/bin"
+    //},
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
