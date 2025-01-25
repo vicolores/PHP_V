@@ -7,12 +7,13 @@
  */
 
 include 'funcion_conexion_bd.php';
-include 'config.php';
-
+include_once 'config.php';
+$url =
+$url = "http://127.0.0.1:8000/index.php";;
 $metodo = $_SERVER['REQUEST_METHOD'];
 
 // Este condicional evita mostrar datos al iniciar, según la ruta base.
-if (strcmp($_SERVER["REQUEST_URI"], "/toni/exam_2t_Serv_Web/") !== 0) {
+if (strcmp($_SERVER["REQUEST_URI"], "http://127.0.0.1:8000/index.php") !== 0) {
     switch ($metodo) {
         case 'GET':
             // Si recibe un "id", busca el registro específico;

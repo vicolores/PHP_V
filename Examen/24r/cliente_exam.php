@@ -1,3 +1,10 @@
+<?php
+// Mover la lógica de redirección antes de que empiece la salida HTML:
+if (isset($_REQUEST["validar2"])) {
+    header("Location: mostrar_todo_exam.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,21 +29,15 @@
         </form>
 
         <?php
-        /**
-         * Cliente REST de Servicio Web My Name Is Earl
-         */
+        // Cliente REST de Servicio Web My Name Is Earl
         include 'curl_conexion.php';
         include 'config.php';
 
         $res = "";
 
-        // Mostrar todas las ofensas en otra página
-        if (isset($_REQUEST["validar2"])) {
-            header("Location: mostrar_todo_exam.php");
-            exit;
-        }
+        // (El bloque "if (isset($_REQUEST["validar2"]))" estaba aquí; se movió arriba)
 
-        // Retrasar ofensa (básicamente copiar al final e insertar nuevamente)
+        // Retrasar ofensa
         if (isset($_REQUEST["retrasar"])) {
             if (isset($_REQUEST["id"])) {
                 $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
@@ -45,26 +46,23 @@
                 $response = curl_conexion($url, "GET");
                 $ofensa = json_decode($response, true);
 
-                // Comprobamos que haya llegado un resultado válido (1 fila por ejemplo)
                 if (is_array($ofensa) && count($ofensa) === 1) {
-                    // Insertar de nuevo al final
+                    // Insertar de nuevo
                     $params = array(
                         'nombre'    => $ofensa[0][1],
                         'ofensa'    => $ofensa[0][2],
                         'direccion' => $ofensa[0][3]
                     );
-                    $url = "http://localhost/toni/exam_2t_Serv_Web/index.php";
+                    $url = "http://127.0.0.1:8000/index.php";
                     $response = curl_conexion($url, 'POST', $params);
                     $resPost = json_decode($response);
 
-                    // Comprobamos si se insertó bien
                     if (!strpos($resPost, "cURL Error #")) {
                         // Borrar el actual
-                        $url = "http://localhost/toni/exam_2t_Serv_Web/index.php?id=" . $id;
+                        $url = "http://127.0.0.1:8000/index.php" . $id;
                         $responseDel = curl_conexion($url, "DELETE");
                         $resDel = json_decode($responseDel);
 
-                        // Comprobamos si se ha eliminado
                         if (!strpos($resDel, "cURL Error #")) {
                             $res = "Retrasado correctamente.";
                         } else {
@@ -84,7 +82,7 @@
         if (isset($_REQUEST["eliminar"])) {
             if (isset($_REQUEST["id"])) {
                 $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
-                $url = "http://localhost/toni/exam_2t_Serv_Web/index.php?id=" . $id;
+                $url = "http://127.0.0.1:8000/index.php" . $id;
                 $response = curl_conexion($url, "DELETE");
                 $resp = json_decode($response);
                 $res = $resp;

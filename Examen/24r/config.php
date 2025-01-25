@@ -5,7 +5,7 @@
  * Incluye también la función de conexión a la BD.
  */
 
-include 'funcion_conexion_bd.php';
+include_once 'funcion_conexion_bd.php';
 
 // Ajusta aquí tus datos de conexión tal como te indica GitHub Codespaces:
 define("SERVIDOR", "127.0.0.1");
